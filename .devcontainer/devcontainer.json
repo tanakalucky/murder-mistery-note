@@ -3,24 +3,14 @@
   "dockerComposeFile": "docker-compose.yml",
   "workspaceFolder": "/app",
   "customizations": {
-    "vscode": {
-      "extensions": [
-        "eamodio.gitlens",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss"
-      ],
-      "settings": {
-        "prettier.configPath": ".prettierrc.json",
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-          "source.fixAll.eslint": "explicit"
-        },
-        "editor.tabSize": 2,
-        "files.associations": {
-          "*.css": "tailwindcss"
-        }
+    "extensions": ["eamodio.gitlens", "biomejs.biome"],
+    "settings": {
+      "editor.tabSize": 2,
+      "editor.defaultFormatter": "biomejs.biome",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "quickfix.biome": "explicit",
+        "source.organizeImports.biome": "explicit"
       }
     }
   }
