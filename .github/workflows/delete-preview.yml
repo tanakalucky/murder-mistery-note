@@ -8,7 +8,7 @@ on:
 
 jobs:
   delete-preview:
-    runs-on: x64
+    runs-on: ubuntu-latest
     steps:
       - name: Get branch name
         id: get-branch
