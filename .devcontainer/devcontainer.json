@@ -3,14 +3,20 @@
   "dockerComposeFile": "docker-compose.yml",
   "workspaceFolder": "/app",
   "customizations": {
-    "extensions": ["eamodio.gitlens", "biomejs.biome"],
-    "settings": {
-      "editor.tabSize": 2,
-      "editor.defaultFormatter": "biomejs.biome",
-      "editor.formatOnSave": true,
-      "editor.codeActionsOnSave": {
-        "quickfix.biome": "explicit",
-        "source.organizeImports.biome": "explicit"
+    "vscode": {
+      "extensions": [
+        "eamodio.gitlens",
+        "biomejs.biome",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "biomejs.biome",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "quickfix.biome": "explicit",
+          "source.organizeImports.biome": "explicit"
+        }
       }
     }
   }
