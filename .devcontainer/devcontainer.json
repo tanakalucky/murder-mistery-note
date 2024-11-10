@@ -4,11 +4,7 @@
   "workspaceFolder": "/app",
   "customizations": {
     "vscode": {
-      "extensions": [
-        "eamodio.gitlens",
-        "biomejs.biome",
-        "bradlc.vscode-tailwindcss"
-      ],
+      "extensions": ["eamodio.gitlens", "biomejs.biome", "bradlc.vscode-tailwindcss"],
       "settings": {
         "editor.tabSize": 2,
         "editor.defaultFormatter": "biomejs.biome",
