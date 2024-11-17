@@ -30,7 +30,7 @@
         "useNodejsImportProtocol": "off"
       }
     },
-    "ignore": ["main.tsx"]
+    "ignore": ["src/components/ui/**"]
   },
   "javascript": {
     "formatter": {
@@ -43,5 +43,17 @@
     "parser": {
       "allowComments": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "include": ["main.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noNonNullAssertion": "off"
+          }
+        }
+      }
+    }
+  ]
 }
