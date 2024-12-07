@@ -1,4 +1,4 @@
-import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
+import { Link, isRouteErrorResponse, useRouteError } from 'react-router-dom';
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -23,6 +23,10 @@ export default function ErrorPage() {
       <p>
         <i>{errorMessage}</i>
       </p>
+
+      <Link to='/' className='text-blue-500 underline'>
+        Go back to the homepage
+      </Link>
     </div>
   );
 }

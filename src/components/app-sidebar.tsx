@@ -1,3 +1,5 @@
+import AddPdfDialog from '@/features/pdf/components/AddPdfDialog';
+import { usePdfStore } from '@/features/pdf/store/pdf.store';
 import { File } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -12,15 +14,14 @@ import {
 } from './ui/sidebar';
 
 export function AppSidebar() {
-  // const { pdfList } = usePdfStore();
-  const pdfList = [{ name: 'test-pdf', url: 'test-url' }];
+  const { pdfList } = usePdfStore();
 
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>資料</SidebarGroupLabel>
-          {/* <AddPdfDialog /> */}
+          <AddPdfDialog />
 
           <SidebarGroupContent>
             <SidebarMenu>
