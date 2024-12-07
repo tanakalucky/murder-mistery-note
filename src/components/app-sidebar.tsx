@@ -1,7 +1,8 @@
 import AddPdfDialog from '@/features/pdf/components/AddPdfDialog';
 import { usePdfStore } from '@/features/pdf/store/pdf.store';
-import { File } from 'lucide-react';
+import { File, MoreHorizontal } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import {
   Sidebar,
   SidebarContent,
@@ -9,12 +10,13 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
+  SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
 } from './ui/sidebar';
 
 export function AppSidebar() {
-  const { pdfList } = usePdfStore();
+  const { pdfList, deletePdf } = usePdfStore();
 
   return (
     <Sidebar>
@@ -33,6 +35,19 @@ export function AppSidebar() {
                       <span>{item.name}</span>
                     </Link>
                   </SidebarMenuButton>
+
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <SidebarMenuAction>
+                        <MoreHorizontal />
+                      </SidebarMenuAction>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent side='right' align='start'>
+                      <DropdownMenuItem onClick={() => deletePdf(index)}>
+                        <span>削除</span>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
