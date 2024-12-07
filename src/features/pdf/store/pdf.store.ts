@@ -14,12 +14,11 @@ type Action = {
   deletePdf: (removeIndex: number) => void;
 };
 
-export const usePdfStore = create<State & Action>((set, get) => ({
+export const usePdfStore = create<State & Action>((set) => ({
   pdfList: [],
   addPdf: (pdfList) => set(() => ({ pdfList })),
-  deletePdf: (removeIndex) => {
-    const oldList = get().pdfList;
-    const newList = oldList.filter((_, idx) => idx !== removeIndex);
-    return set({ pdfList: newList });
-  },
+  deletePdf: (removeIndex: number) =>
+    set((state) => ({
+      pdfList: state.pdfList.filter((_, idx) => idx !== removeIndex),
+    })),
 }));

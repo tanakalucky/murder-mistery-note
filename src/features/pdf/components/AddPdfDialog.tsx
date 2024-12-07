@@ -25,6 +25,11 @@ export default function AddPdfDialog() {
   };
 
   const handleAddPdf = () => {
+    if (!name || !url) {
+      alert('ファイル名とPDFファイルを選択してください。');
+      return;
+    }
+
     addPdf([...pdfList, { name, url }]);
     handleClose();
   };

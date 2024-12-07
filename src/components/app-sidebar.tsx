@@ -1,7 +1,7 @@
 import AddPdfDialog from '@/features/pdf/components/AddPdfDialog';
 import { usePdfStore } from '@/features/pdf/store/pdf.store';
 import { File, MoreHorizontal } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import {
   Sidebar,
@@ -17,6 +17,24 @@ import {
 
 export function AppSidebar() {
   const { pdfList, deletePdf } = usePdfStore();
+  const navigate = useNavigate();
+
+  const handleDelete = (index: number) => {
+    if (!window.confirm('本当にこのPDFを削除しますか？')) {
+      return;
+    }
+
+    if (pdfList.length === 1) {
+      navigate('/');
+    } else {
+      const isLastIdx = pdfList.length - 1 === index;
+      if (isLastIdx) {
+        navigate(`/pdf/${index - 1}`);
+      }
+    }
+
+    deletePdf(index);
+  };
 
   return (
     <Sidebar>
@@ -43,7 +61,7 @@ export function AppSidebar() {
                       </SidebarMenuAction>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent side='right' align='start'>
-                      <DropdownMenuItem onClick={() => deletePdf(index)}>
+                      <DropdownMenuItem onClick={() => handleDelete(index)}>
                         <span>削除</span>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
