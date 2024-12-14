@@ -1,6 +1,6 @@
 import AddPdfDialog from '@/features/pdf/components/AddPdfDialog';
 import { usePdfStore } from '@/features/pdf/store/pdf.store';
-import { File, MoreHorizontal } from 'lucide-react';
+import { Clock4, File, MoreHorizontal } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
 import {
@@ -39,6 +39,23 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>ノート</SidebarGroupLabel>
+
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link to='/time-table'>
+                    <Clock4 />
+                    <span>タイムテーブル</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
         <SidebarGroup>
           <SidebarGroupLabel>資料</SidebarGroupLabel>
           <AddPdfDialog />
