@@ -1,4 +1,5 @@
 import { Textarea } from '@/components/ui/textarea';
+import { debounce } from 'lodash';
 import { useEffect, useRef } from 'react';
 
 export default function Memo() {
@@ -6,6 +7,10 @@ export default function Memo() {
 
   const savedData = localStorage.getItem('murder-mistery-note');
   const initialData = savedData ? savedData : '';
+
+  const handleChange = debounce((value: string) => {
+    saveData(value);
+  }, 300);
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -19,12 +24,12 @@ export default function Memo() {
         ref={textareaRef}
         className='h-full max-h-full'
         placeholder='メモを記入しよう!'
-        onChange={(e) => saveData(e.currentTarget.value)}
+        onChange={(e) => handleChange(e.currentTarget.value)}
       />
     </div>
   );
 }
 
-const saveData = (data: string) => {
+const saveData = (data: string): void => {
   localStorage.setItem('murder-mistery-note', data);
 };
