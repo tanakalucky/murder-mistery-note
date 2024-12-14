@@ -11,6 +11,7 @@ import Root from './routes/root';
 
 import './index.css';
 import 'handsontable/dist/handsontable.full.min.css';
+import Memo from './features/memo/components/Memo';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Index />,
       },
+      { path: 'memo', element: <Memo /> },
       { path: 'time-table', element: <TimeTable /> },
       { path: 'pdf/:index', element: <PdfViewer /> },
     ],

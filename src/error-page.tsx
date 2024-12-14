@@ -17,7 +17,7 @@ export default function ErrorPage() {
   }
 
   return (
-    <div className='h-screen flex flex-col justify-center items-center gap-5'>
+    <div className='flex h-screen flex-col items-center justify-center gap-5'>
       <h1 className='text-3xl'>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>
