@@ -25,7 +25,6 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/locales": "^1.0.0",
     "@react-pdf-viewer/toolbar": "^3.12.0",
-    "@tanstack/react-table": "^8.20.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "handsontable": "^14.6.1",
