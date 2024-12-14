@@ -1,13 +1,16 @@
+import { Worker } from '@react-pdf-viewer/core';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import { Worker } from '@react-pdf-viewer/core';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorPage from './error-page';
 import PdfViewer from './features/pdf/components/PdfViewer';
+import TimeTable from './features/time-table/components/TimeTable';
 import NotFoundPage from './not-found-page';
 import Index from './routes';
 import Root from './routes/root';
+
+import './index.css';
+import 'handsontable/dist/handsontable.full.min.css';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Index />,
       },
+      { path: 'time-table', element: <TimeTable /> },
       { path: 'pdf/:index', element: <PdfViewer /> },
     ],
   },

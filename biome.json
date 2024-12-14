@@ -24,10 +24,14 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "noUnusedImports": "warn"
+        "noUnusedImports": "warn",
+        "useExhaustiveDependencies": "warn"
       },
       "style": {
         "useNodejsImportProtocol": "off"
+      },
+      "nursery": {
+        "useSortedClasses": "warn"
       }
     },
     "ignore": ["src/components/ui/**"]
