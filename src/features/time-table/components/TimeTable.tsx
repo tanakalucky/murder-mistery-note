@@ -5,6 +5,7 @@ import 'handsontable/dist/handsontable.min.css';
 import type { HotTableClass } from '@handsontable/react';
 import { jaJP, registerLanguageDictionary } from 'handsontable/i18n';
 import { registerAllModules } from 'handsontable/registry';
+import type { CellChange } from 'node_modules/handsontable/common';
 import { useEffect, useRef, useState } from 'react';
 
 registerAllModules();
@@ -24,12 +25,18 @@ export default function TimeTable() {
     const hotInstance = hotTableRef.current?.hotInstance;
 
     if (hotInstance) {
-      hotInstance.addHook('afterChange', (changes) => {
+      const handleChange = (changes: CellChange[] | null) => {
         if (changes) {
           const currentData = hotInstance.getData();
           saveData(currentData);
         }
-      });
+      };
+
+      hotInstance.addHook('afterChange', handleChange);
+
+      return () => {
+        hotInstance.removeHook('afterChange', handleChange);
+      };
     }
   }, []);
 
