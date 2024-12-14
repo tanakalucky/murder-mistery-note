@@ -1,3 +1,3 @@
 export default function Index() {
-  return <div className='w-full h-full flex flex-col gap-4 text-center'>マーダーミステリーメモアプリへようこそ！</div>;
+  return <div className='flex h-full w-full flex-col gap-4 text-center'>マーダーミステリーメモアプリへようこそ！</div>;
 }
